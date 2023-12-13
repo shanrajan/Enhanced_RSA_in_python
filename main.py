@@ -1,5 +1,6 @@
 import random
 from Crypto.Util.number import getPrime, bytes_to_long, long_to_bytes
+from prime_time import microseconds_part
 
 class KeyPair:
     def __init__(self, n, e, d):
@@ -15,7 +16,8 @@ def gcd(a, b):
 def generate_keys():
     p = getPrime(128)
     q = getPrime(128)
-    r = getPrime(128)
+    r = microseconds_part
+
     n = p * q * r
     phi = (p - 1) * (q - 1) * (r - 1)
     e = random.randrange(2, phi)
